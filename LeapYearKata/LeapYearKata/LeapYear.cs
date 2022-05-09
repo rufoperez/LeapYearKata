@@ -4,11 +4,21 @@
     {
         public static bool CheckLeapYear(int year)
         {
-            if(year % 400 == 0)
+            if(YearIsDivisibleBy400(year))
                 return true;
-            if (year % 4 == 0 && year % 100 != 0)
+            if (YearIsDivisibleBy4NotBy100(year))
                 return true;
             return false;
+        }
+
+        private static bool YearIsDivisibleBy4NotBy100(int year)
+        {
+            return year % 4 == 0 && year % 100 != 0;
+        }
+
+        private static bool YearIsDivisibleBy400(int year)
+        {
+            return year % 400 == 0;
         }
     }
 }
